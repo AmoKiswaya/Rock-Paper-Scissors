@@ -27,7 +27,7 @@
                 return;
             }
 
-            if (
+            else if (
                 (humanChoice === "rock" && computerSelection === "scissors") ||
                 (humanChoice === "paper" && computerSelection === "rock") ||
                 (humanChoice === "scissors" && computerSelection === "paper")
@@ -40,10 +40,47 @@
             }
         }
 
-        const humanSelection = getHumanChoice();
-        const computerPick = getComputerChoice();
-        playRound(humanSelection, computerPick);
-        console.log(playRound()) 
+
+         function playGame() {
+            let humanScore = 0;
+            let computerScore = 0;
+           
+          function playRound (humanChoice, computerChoice) {
+            if (humanChoice === computerSelection) {
+                console.log(`It's a tie! You both chose ${humanChoice}.`);
+                return;
+            }
+
+            else if (
+                (humanChoice === "rock" && computerSelection === "scissors") ||
+                (humanChoice === "paper" && computerSelection === "rock") ||
+                (humanChoice === "scissors" && computerSelection === "paper")
+            ) {
+                humanScore++;
+                console.log(`You win!, You: ${humanScore}, Computer: ${computerScore}`);
+            } else {
+                computerScore++;
+                console.log(`You lose!, Computer: ${computerScore}, You: ${humanScore}`);
+            }
+          }
+
+          for (let round =1; round<=5; round++) {
+            console.log(`\n--- Round ${round} ---`)
+            const humanSelection = getHumanChoice();
+            const computerPick = getComputerChoice();
+            playRound(humanSelection, computerPick);
+          }
+
+          console.log("\n--- Game Over ---");
+          if (humanScore > computerScore) {
+          console.log("You win the game!");
+          } else if (humanScore < computerScore) {
+          console.log("Computer wins the game!");
+          } else {
+          console.log("The game is a tie!");
+          }
+         } 
+        console.log(playGame())
         
     </script>
 
