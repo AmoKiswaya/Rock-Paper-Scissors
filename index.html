@@ -7,11 +7,42 @@
 </head>
 <body>
     <script>
+        let humanScore = 0;
+        let computerScore = 0;
+
         function getComputerChoice () {
             let multipleChoices = ["rock", "paper", "scissors"];
             computerSelection = multipleChoices[Math.floor(Math.random() * multipleChoices.length)];
             return computerSelection
         }
+
+        function getHumanChoice () {
+            let humanChoice = prompt("Enter rock, paper or scissors: ");
+            return humanChoice.toLowerCase();
+        }
+
+        function playRound (humanChoice, computerChoice) {
+            if (humanChoice === computerSelection) {
+                console.log(`It's a tie! You both chose ${humanChoice}.`);
+                return;
+            }
+
+            if (
+                (humanChoice === "rock" && computerSelection === "scissors") ||
+                (humanChoice === "paper" && computerSelection === "rock") ||
+                (humanChoice === "scissors" && computerSelection === "paper")
+            ) {
+                humanScore++;
+                console.log("You win!")
+            } else {
+                computerScore++;
+                console.log("You lose!")
+            }
+        }
+
+        const humanSelection = getHumanChoice();
+        const computerPick = getComputerChoice();
+        console.log(playRound()) 
         
     </script>
 
