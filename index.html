@@ -33,15 +33,16 @@
                 (humanChoice === "scissors" && computerSelection === "paper")
             ) {
                 humanScore++;
-                console.log("You win!")
+                console.log(`You win!, You: ${humanScore}, Computer: ${computerScore}`);
             } else {
                 computerScore++;
-                console.log("You lose!")
+                console.log(`You lose!, Computer: ${computerScore}, You: ${humanScore}`);
             }
         }
 
         const humanSelection = getHumanChoice();
         const computerPick = getComputerChoice();
+        playRound(humanSelection, computerPick);
         console.log(playRound()) 
         
     </script>
